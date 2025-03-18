@@ -13,19 +13,64 @@
         <div class="tab-content">
           <div id="tab1" class="tab-pane active">
             <h2>Content for Tab 1</h2>
-            <div class="gallery">
-                <link rel="stylesheet" href="image.css">
-                <div class="main-image">
-                    <img id="mainImage" src="https://www.lrt.lt/img/2022/02/09/1191080-981331-756x425.jpg" alt="Main Image">
-                </div>
-                
-                <div class="thumbnails">
-                    <img class="thumb" src="https://jimmysfarm.com/wp-content/uploads/2023/06/North-American-Raccoon.jpg" alt="Thumbnail 1">
-                    <img class="thumb" src="https://streamline.imgix.net/9909d0de-9797-4416-97c3-b6f877e5307d/0fe9983e-0e28-4bc5-8063-074adb6deff2/raccoon-193647_1920.jpg?ixlib=rb-1.1.0&w=2000&h=2000&fit=max&or=0&s=9d58cc57ad67c86b524f7a542391978a" alt="Thumbnail 2">
-                    <img class="thumb" src="https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/8842/live/eac34360-9847-11ef-9993-f7959d92ab33.jpg" alt="Thumbnail 3">
-                    <img class="thumb" src="https://pestworldcdn-dcf2a8gbggazaghf.z01.azurefd.net/media/560906/istock_000007035875medium.jpg" alt="Thumbnail 4">
-                </div>
-            </div>
+            <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แกลเลอรีรูปภาพ</title>
+    <link rel="stylesheet" href="image.css">
+    <link rel="stylesheet" href="image.js">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-image img {
+            width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .thumbnails img {
+            width: 100px;
+            height: 80px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .thumbnails img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <div class="main-image">
+            <img id="mainImage" src="https://www.lrt.lt/img/2022/02/09/1191080-981331-756x425.jpg" alt="Main Image">
+        </div>
+        <div class="thumbnails">
+            <img class="thumb" src="https://jimmysfarm.com/wp-content/uploads/2023/06/North-American-Raccoon.jpg" alt="Thumbnail 1" onclick="changeImage('https://jimmysfarm.com/wp-content/uploads/2023/06/North-American-Raccoon.jpg')">
+            <img class="thumb" src="https://streamline.imgix.net/9909d0de-9797-4416-97c3-b6f877e5307d/0fe9983e-0e28-4bc5-8063-074adb6deff2/raccoon-193647_1920.jpg?ixlib=rb-1.1.0&w=2000&h=2000&fit=max&or=0&s=9d58cc57ad67c86b524f7a542391978a" alt="Thumbnail 2" onclick="changeImage('https://streamline.imgix.net/9909d0de-9797-4416-97c3-b6f877e5307d/0fe9983e-0e28-4bc5-8063-074adb6deff2/raccoon-193647_1920.jpg?ixlib=rb-1.1.0&w=2000&h=2000&fit=max&or=0&s=9d58cc57ad67c86b524f7a542391978a')">
+            <img class="thumb" src="https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/8842/live/eac34360-9847-11ef-9993-f7959d92ab33.jpg" alt="Thumbnail 3" onclick="changeImage('https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/8842/live/eac34360-9847-11ef-9993-f7959d92ab33.jpg')">
+            <img class="thumb" src="https://pestworldcdn-dcf2a8gbggazaghf.z01.azurefd.net/media/560906/istock_000007035875medium.jpg" alt="Thumbnail 4" onclick="changeImage('https://pestworldcdn-dcf2a8gbggazaghf.z01.azurefd.net/media/560906/istock_000007035875medium.jpg')">
+            <img class="thumb" src="https://www.lrt.lt/img/2022/02/09/1191080-981331-756x425.jpg" alt="Thumbnail 4" onclick="changeImage('https://www.lrt.lt/img/2022/02/09/1191080-981331-756x425.jpg')">
+        </div>
+    </div>
+
+    <script>
+        function changeImage(imageSrc) {
+            document.getElementById("mainImage").src = imageSrc;
+        }
+    </script>
+</body>
             
           </div>
           
