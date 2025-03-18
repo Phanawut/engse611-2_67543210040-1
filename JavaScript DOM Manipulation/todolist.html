@@ -1,0 +1,134 @@
+    <!DOCTYPE html>
+    <html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do List</title>
+        <link rel="stylesheet" href="todolist.css">
+        <link rel="stylesheet" href="todolist.js">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f8f9fa;
+            }
+            .container {
+                max-width: 400px;
+                margin: 50px auto;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            h2 {
+                margin-bottom: 15px;
+            }
+            .input-section {
+                display: flex;
+                gap: 5px;
+            }
+            input[type="text"] {
+                flex: 1;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            button {
+                padding: 8px 12px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            .add-btn {
+                background: #28a745;
+                color: white;
+            }
+            .add-btn:hover {
+                background: #218838;
+            }
+            .todo-list {
+                list-style: none;
+                padding: 0;
+                margin-top: 10px;
+            }
+            .todo-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: #f1f1f1;
+                padding: 8px;
+                border-radius: 5px;
+                margin-top: 5px;
+            }
+            .completed {
+                text-decoration: line-through;
+                color: gray;
+            }
+            .check-btn {
+                background: #28a745;
+                color: white;
+            }
+            .delete-btn {
+                background: #dc3545;
+                color: white;
+            }
+            .delete-all-btn {
+                margin-top: 10px;
+                background: #dc3545;
+                color: white;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <div class="container">
+        <h2>To-Do List</h2>
+        <div class="input-section">
+            <input type="text" id="todo-input" placeholder="เพิ่มรายการใหม่...">
+            <button class="add-btn" onclick="addTodo()">เพิ่ม</button>
+        </div>
+        <ul class="todo-list" id="todo-list"></ul>
+        <button class="delete-all-btn" onclick="clearCompleted()">ลบรายการที่เสร็จแล้ว</button>
+    </div>
+    
+    <script>
+        function addTodo() { 
+            let input = document.getElementById("todo-input");
+            let text = input.value.trim();
+            if (text === "") return;
+    
+            let list = document.getElementById("todo-list");
+            let li = document.createElement("li");
+            li.classList.add("todo-item");
+    
+            li.innerHTML = `
+                <span>${text}</span>
+                <div>
+                    <button class="check-btn" onclick="toggleComplete(this)">✔️</button>
+                    <button class="delete-btn" onclick="deleteTodo(this)">🗑️</button>
+                </div>
+            `;
+    
+            list.appendChild(li);
+            input.value = "";
+        }
+    
+        function toggleComplete(button) {
+            let li = button.parentElement.parentElement;
+            li.classList.toggle("completed");
+        }
+    
+        function deleteTodo(button) {
+            let li = button.parentElement.parentElement;
+            li.remove();
+        }
+    
+        function clearCompleted() {
+            let items = document.querySelectorAll(".completed");
+            items.forEach(item => item.remove());
+        }
+    </script>
+    
+    </body>
+    </html>

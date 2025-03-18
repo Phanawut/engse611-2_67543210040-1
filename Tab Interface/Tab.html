@@ -1,0 +1,169 @@
+      <div class="tab-container">
+        <link rel="stylesheet" href="Tab.css">
+        <script src="Tab.js"></script>
+
+        <link rel="stylesheet" href="Tab.css">
+        <link rel="stylesheet" href="Tab.js">
+        
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+          <button class="tab-btn" data-tab="tab2">Tab 2</button>
+        </div>
+        
+        <div class="tab-content">
+          <div id="tab1" class="tab-pane active">
+            <h2>Content for Tab 1</h2>
+            <div class="gallery">
+                <link rel="stylesheet" href="image.css">
+                <div class="main-image">
+                    <img id="mainImage" src="https://www.lrt.lt/img/2022/02/09/1191080-981331-756x425.jpg" alt="Main Image">
+                </div>
+                
+                <div class="thumbnails">
+                    <img class="thumb" src="https://jimmysfarm.com/wp-content/uploads/2023/06/North-American-Raccoon.jpg" alt="Thumbnail 1">
+                    <img class="thumb" src="https://streamline.imgix.net/9909d0de-9797-4416-97c3-b6f877e5307d/0fe9983e-0e28-4bc5-8063-074adb6deff2/raccoon-193647_1920.jpg?ixlib=rb-1.1.0&w=2000&h=2000&fit=max&or=0&s=9d58cc57ad67c86b524f7a542391978a" alt="Thumbnail 2">
+                    <img class="thumb" src="https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/8842/live/eac34360-9847-11ef-9993-f7959d92ab33.jpg" alt="Thumbnail 3">
+                    <img class="thumb" src="https://pestworldcdn-dcf2a8gbggazaghf.z01.azurefd.net/media/560906/istock_000007035875medium.jpg" alt="Thumbnail 4">
+                </div>
+            </div>
+            
+          </div>
+          
+          <div id="tab2" class="tab-pane">
+            <h2>Content for Tab 2</h2>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Tab</title>
+                <link rel="stylesheet" href="todolist.css">
+                <link rel="stylesheet" href="todolist.js">
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                        background-color: #f8f9fa;
+                    }
+                    .container {
+                        max-width: 400px;
+                        margin: 50px auto;
+                        background: white;
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+                    h2 {
+                        margin-bottom: 15px;
+                    }
+                    .input-section {
+                        display: flex;
+                        gap: 5px;
+                    }
+                    input[type="text"] {
+                        flex: 1;
+                        padding: 8px;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                    }
+                    button {
+                        padding: 8px 12px;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    }
+                    .add-btn {
+                        background: #28a745;
+                        color: white;
+                    }
+                    .add-btn:hover {
+                        background: #218838;
+                    }
+                    .todo-list {
+                        list-style: none;
+                        padding: 0;
+                        margin-top: 10px;
+                    }
+                    .todo-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        background: #f1f1f1;
+                        padding: 8px;
+                        border-radius: 5px;
+                        margin-top: 5px;
+                    }
+                    .completed {
+                        text-decoration: line-through;
+                        color: gray;
+                    }
+                    .check-btn {
+                        background: #28a745;
+                        color: white;
+                    }
+                    .delete-btn {
+                        background: #dc3545;
+                        color: white;
+                    }
+                    .delete-all-btn {
+                        margin-top: 10px;
+                        background: #dc3545;
+                        color: white;
+                        width: 100%;
+                    }
+                </style>
+            </head>
+            <body>
+            
+            <div class="container">
+                <h2>To-Do List</h2>
+                <div class="input-section">
+                    <input type="text" id="todo-input" placeholder="เพิ่มรายการใหม่...">
+                    <button class="add-btn" onclick="addTodo()">เพิ่ม</button>
+                </div>
+                <ul class="todo-list" id="todo-list"></ul>
+                <button class="delete-all-btn" onclick="clearCompleted()">ลบรายการที่เสร็จแล้ว</button>
+            </div>
+            
+            <script>
+                function addTodo() { 
+                    let input = document.getElementById("todo-input");
+                    let text = input.value.trim();
+                    if (text === "") return;
+            
+                    let list = document.getElementById("todo-list");
+                    let li = document.createElement("li");
+                    li.classList.add("todo-item");
+            
+                    li.innerHTML = `
+                        <span>${text}</span>
+                        <div>
+                            <button class="check-btn" onclick="toggleComplete(this)">✔️</button>
+                            <button class="delete-btn" onclick="deleteTodo(this)">🗑️</button>
+                        </div>
+                    `;
+            
+                    list.appendChild(li);
+                    input.value = "";
+                }
+            
+                function toggleComplete(button) {
+                    let li = button.parentElement.parentElement;
+                    li.classList.toggle("completed");
+                }
+            
+                function deleteTodo(button) {
+                    let li = button.parentElement.parentElement;
+                    li.remove();
+                }
+            
+                function clearCompleted() {
+                    let items = document.querySelectorAll(".completed");
+                    items.forEach(item => item.remove());
+                }
+            </script>
+            
+            </body>
+            </html>
+          </div>
+        </div>
+      </div>
+      

@@ -1,0 +1,50 @@
+/* Styles for the tab container */
+.tab-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styles for the tabs */
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1f1f1;
+    padding: 10px;
+  }
+  
+  .tab-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #ddd;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .tab-btn:hover {
+    background-color: #ccc;
+  }
+  
+  .tab-btn.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  /* Styles for the tab content */
+  .tab-content {
+    margin-top: 20px;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }
+  
